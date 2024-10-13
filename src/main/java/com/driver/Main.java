@@ -1,23 +1,30 @@
 package com.driver;
 
+import java.sql.SQLOutput;
+
 public class Main {
     public static void main(String[] args) {
-        A obj1 = new B();
-        System.out.println(obj1.meth());
-
         B obj2 = new B();
-        System.out.println(obj2.meth());
+        System.out.println(B.meth());
     }
 }
+class A {
+    A() {
+    }
 
-class A{
-    public String meth(){
+    public static String meth() {
         return "Invoking method from class A";
     }
 }
+class B extends A {
+    B() {
+    }
 
-class B extends A{
-    public String meth(){
+    public static String callA() {
+        return A.meth();
+    }
+
+    public static String meth() {
         return "Method is overridden in Extended class B";
     }
 }
